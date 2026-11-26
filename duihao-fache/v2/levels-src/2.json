@@ -1,0 +1,1 @@
+{"i":2,"n":60603,"score":0.025925925925925797,"dp":2,"r":{"taps":6,"pRandom":0.5995370370370371,"pGreedy":0.875,"pR5":1,"states":34},"lv":{"vehicles":[{"c":"A","x":2,"y":3,"dir":"D"},{"c":"B","x":5,"y":2,"dir":"U"},{"c":"A","x":4,"y":1,"dir":"R"},{"c":"B","x":5,"y":6,"dir":"U"},{"c":"C","x":3,"y":4,"dir":"L"},{"c":"C","x":0,"y":6,"dir":"U"}],"queue":"CCCCAAAACCCCBBBBAAAABBBB"}}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="duihao-version" content="DUIHAO-V3S-20261117">
+<title>对号发车 · v2 试玩</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="bgfill"></div>
+<div id="stage" data-version="DUIHAO-V3S-20261117">
+  <!-- 开始页 -->
+  <section id="scr-start" class="screen">
+    <div class="start-bg"></div>
+    <div class="title-wrap">
+      <h1 class="game-title">对号发车</h1>
+      <p class="game-sub">点车出库 · 同色上车 · 坐满发车</p>
+    </div>
+    <div class="start-btns">
+      <button class="btn-img btn-primary" id="btn-start"><img src="assets/btn-primary.png" alt=""><span>开始游戏</span></button>
+      <button class="btn-img btn-secondary" id="btn-select"><img src="assets/btn-secondary.png" alt=""><span>选择关卡</span></button>
+    </div>
+    <div class="ver-tag">v2 试玩版 · 前 3 关</div>
+  </section>
+
+  <!-- 选关 -->
+  <section id="scr-select" class="screen">
+    <div class="select-bg"></div>
+    <div class="select-head">
+      <button class="icon-btn" id="sel-back"><img src="assets/badge.png" alt=""><span>‹</span></button>
+      <div class="pill-title"><img src="assets/pill.png" alt=""><span>选择关卡</span></div>
+    </div>
+    <div class="level-grid" id="level-grid"></div>
+    <p class="select-note">共 20 关，过关后解锁下一关</p>
+  </section>
+
+  <!-- 局内 -->
+  <section id="scr-play" class="screen">
+    <div id="field">
+      <div class="play-bg"></div>
+      <div id="lot-layer"></div>
+      <div id="spot-layer"></div>
+      <div id="veh-layer"></div>
+      <div id="pax-layer"></div>
+      <div id="fx-layer"></div>
+    </div>
+    <div class="hud-top">
+      <button class="icon-btn" id="play-back"><img src="assets/badge.png" alt=""><span>‹</span></button>
+      <div class="pill-title level-pill"><img src="assets/pill.png" alt=""><span id="level-title">第 1 关</span></div>
+      <div class="queue-count" id="queue-count"></div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="hud-bottom">
+      <button class="round-btn" id="btn-undo"><img src="assets/btn-undo.png" alt=""><b class="badge-num" id="undo-badge"><img src="assets/badge.png" alt=""><span id="undo-num">2</span></b><i>撤销</i></button>
+      <div class="spot-info" id="spot-info">空车位 5 / 5</div>
+      <button class="round-btn" id="btn-retry"><img src="assets/btn-retry.png" alt=""><i>重来</i></button>
+    </div>
+    <div id="tutorial" class="hidden">
+      <img class="hand" id="tut-hand" src="assets/hand.png" alt="">
+      <div class="tut-bubble panel9"><span>点亮着的车，让同色乘客上车</span></div>
+    </div>
+  </section>
+
+  <!-- 过关 / 失败卡片 -->
+  <div id="card-mask" class="hidden"></div>
+  <div id="card-win" class="card panel9 hidden">
+    
+    <div class="card-body">
+      <h2>过关！</h2>
+      <div class="stars" id="win-stars"></div>
+      <p class="card-stat" id="win-stat"></p>
+      <div class="card-btns">
+        <button class="btn-img btn-primary small" id="win-next"><img src="assets/btn-primary.png" alt=""><span>下一关</span></button>
+        <button class="btn-img btn-secondary small" id="win-select"><img src="assets/btn-secondary.png" alt=""><span>回选关</span></button>
+      </div>
+    </div>
+  </div>
+  <div id="card-fail" class="card panel9 hidden">
+    
+    <div class="card-body">
+      <h2 class="fail">差一点！</h2>
+      <p class="card-reason" id="fail-reason"></p>
+      <button class="btn-img btn-primary revive" id="fail-revive"><img src="assets/btn-primary.png" alt=""><span>看广告复活</span><em>临时 +1 车位，接着玩</em></button>
+      <button class="share-link" id="fail-share"><img src="assets/share.png" alt=""><span>分享好友 · 本局解锁 1 个车位</span></button>
+      <div class="card-btns three">
+        <button class="btn-img btn-secondary small" id="fail-undo"><img src="assets/btn-secondary.png" alt=""><span>撤销</span></button>
+        <button class="btn-img btn-secondary small" id="fail-retry"><img src="assets/btn-secondary.png" alt=""><span>重来</span></button>
+        <button class="btn-img btn-secondary small" id="fail-select"><img src="assets/btn-secondary.png" alt=""><span>回选关</span></button>
+      </div>
+    </div>
+  </div>
+  <div id="card-intro" class="card panel9 hidden">
+    <div class="card-body">
+      <div class="intro-tag">新元素</div>
+      <img class="intro-img" id="intro-img" src="assets/intro-long.jpg" alt="">
+      <h3 id="intro-title"></h3>
+      <p class="intro-text" id="intro-text"></p>
+      <button class="btn-img btn-primary small" id="intro-ok"><img src="assets/btn-primary.png" alt=""><span>知道了</span></button>
+    </div>
+  </div>
+  <div id="share-modal" class="hidden">
+    <div class="card panel9 share-card">
+      <div class="card-body">
+        <img class="intro-img" src="assets/share-illu.jpg" alt="">
+        <h3>分享给好友</h3>
+        <p class="intro-text">每分享 1 次，本局多 1 个车位（每局最多 2 个）</p>
+        <p class="share-busy"><img src="assets/share.png" alt="">正在分享给好友…</p>
+        <div class="card-btns">
+          <button class="btn-img btn-primary small" id="share-ok"><img src="assets/btn-primary.png" alt=""><span>分享</span></button>
+          <button class="btn-img btn-secondary small" id="share-cancel"><img src="assets/btn-secondary.png" alt=""><span>取消</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="watch" class="hidden">
+    <div class="watch-card panel9"><div class="watch-text"><b>观看</b><span>（广告占位）</span><em id="watch-sec">3</em><small id="watch-what">看完获得 1 次撤销</small></div></div>
+  </div>
+  <div id="toast" class="hidden"><img src="assets/pill.png" alt=""><span></span></div>
+  <div id="fade"></div>
+</div>
+<script src="js/logic.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

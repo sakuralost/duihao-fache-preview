@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>云朵果冻铺</title>
+  <link rel="icon" href="wechat-minigame/images/strawberry.png">
+  <link rel="stylesheet" href="css/site.css">
+
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <script src="wechat-minigame/js/rules.js"></script>
+  <script src="wechat-minigame/js/levels.js"></script>
+  <script src="wechat-minigame/js/audio.js"></script>
+  <script src="wechat-minigame/js/play.js"></script>
+  <script src="wechat-minigame/js/shell.js"></script>
+  <script>
+    JellyShop.bootBrowser(document.getElementById('game')).catch(function (err) {
+      document.body.textContent = '素材没有加载起来：' + err.message;
+    });
+  </script>
+</body>
+</html>

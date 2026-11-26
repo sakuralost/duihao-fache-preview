@@ -1,0 +1,22 @@
+// 第 2–20 关生成目标（3 个车位）。maxR/maxG 为硬上限；L2 另有下限。
+module.exports = {
+  2: { veh: 'A A B B C C', chunks: [2, 3, 4], tR: 0.40, tG: 0.70, minR: 0.30, maxR: 0.50, minG: 0.60, maxG: 0.80, minDepth: 2, maxDepth: 4, minMov: 2, maxMov: 4 },
+  3: { veh: 'A A B B C C D D', chunks: [2, 3, 4], tR: 0.03, tG: 0.18, maxR: 0.05, maxG: 0.25, minDepth: 3, minMov: 2, maxMov: 4, needLose: true },
+  4: { veh: 'A A A B B C C D D', chunks: [2, 3, 4], tR: 0.04, tG: 0.20, maxR: 0.08, maxG: 0.30, minDepth: 3 },
+  5: { veh: 'A3 B3 A B C C D', chunks: [2, 3, 4], tR: 0.10, tG: 0.38, maxR: 0.15, maxG: 0.42, minDepth: 2, maxDepth: 4, minMov: 2, maxMov: 4 },
+  6: { veh: 'A3 B3 A A B C C D', chunks: [2, 3, 4], tR: 0.05, tG: 0.22, maxR: 0.08, maxG: 0.30, minDepth: 2 },
+  7: { veh: 'A3 B3 C3 A B C D D', chunks: [2, 3, 4], tR: 0.04, tG: 0.20, maxR: 0.08, maxG: 0.30, minDepth: 3 },
+  8: { veh: 'A3 B3 C3 D3 A B C D A', chunks: [2, 3, 4], tR: 0.02, tG: 0.15, maxR: 0.08, maxG: 0.30, minDepth: 3 },
+  9: { veh: 'A3 A3 B B C C', chunks: [2, 3, 4], groups: [2, 3], groupRate: 0.55, tR: 0.04, tG: 0.20, maxR: 0.05, maxG: 0.25, minDepth: 2, maxDepth: 4 },
+  10: { veh: 'A3 A3 B3 B C C D', chunks: [2, 3, 4], groups: [2, 3], groupRate: 0.45, tR: 0.03, tG: 0.18, maxR: 0.05, maxG: 0.25, minDepth: 2 },
+  11: { veh: 'A3 A3 B3 C3 B C D D', chunks: [2, 3, 4], groups: [2, 3], groupRate: 0.4, tR: 0.03, tG: 0.18, maxR: 0.05, maxG: 0.25, minDepth: 3 },
+  12: { veh: 'A3 A3 B3 B C C D D', chunks: [2, 3, 4], groups: [2, 3], groupRate: 0.4, tR: 0.03, tG: 0.18, maxR: 0.05, maxG: 0.25, minDepth: 2 },
+  13: { veh: 'A3 A3 B3 C3 D3 B C D B', chunks: [2, 3, 4], groups: [2, 3], groupRate: 0.35, tR: 0.025, tG: 0.16, maxR: 0.05, maxG: 0.25, minDepth: 3 },
+  14: { veh: 'A3 A3 B3 C3 D3 B C D B C', chunks: [2, 3], groups: [2, 3], groupRate: 0.35, tR: 0.02, tG: 0.14, maxR: 0.05, maxG: 0.25, minDepth: 3 },
+  15: { veh: 'A3 B3 A B C C D', chunks: [2, 3, 4], mystery: 2, tR: 0.02, tG: 0.16, maxR: 0.03, maxG: 0.20, minDepth: 2, maxDepth: 4 },
+  16: { veh: 'A3 B3 A B C C D D', chunks: [2, 3, 4], mystery: 3, tR: 0.02, tG: 0.15, maxR: 0.03, maxG: 0.20, minDepth: 2 },
+  17: { veh: 'A3 A3 B3 C3 B C D D', chunks: [2, 3, 4], groups: [2, 3], groupRate: 0.35, mystery: 3, tR: 0.02, tG: 0.14, maxR: 0.03, maxG: 0.20, minDepth: 3 },
+  18: { veh: 'A3 A3 B3 C3 D3 B C D B C', chunks: [2, 3], groups: [2, 3], groupRate: 0.35, mystery: 4, tR: 0.01, tG: 0.10, maxR: 0.03, maxG: 0.20, minDepth: 3 },
+  19: { veh: 'A3 A3 B3 B C C D D', chunks: [2, 3, 4], groups: [2, 3], groupRate: 0.3, mystery: 2, tR: 0.02, tG: 0.16, maxR: 0.03, maxG: 0.20, minDepth: 2 },
+  20: { veh: 'A3 A3 B3 C3 D3 B C D B D', chunks: [2, 3], groups: [2, 3], groupRate: 0.35, mystery: 4, tR: 0.008, tG: 0.10, maxR: 0.02, maxG: 0.15, minDepth: 3 },
+};

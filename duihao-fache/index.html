@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>对号发车</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="screen-start" class="screen active">
+      <img class="bg" src="assets/ui-start.jpg" alt="" />
+      <div class="title-wrap">
+        <h1>对号发车</h1>
+        <p>把车开出去，让乘客对号上车</p>
+      </div>
+      <div class="start-actions">
+        <button class="img-btn primary" id="btn-start" type="button">
+          <img src="assets/btn-primary.png" alt="" />
+          <span>开始游戏</span>
+        </button>
+        <button class="img-btn secondary" id="btn-to-select" type="button">
+          <img src="assets/btn-secondary.png" alt="" />
+          <span>选关</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="screen-select" class="screen">
+      <img class="bg" src="assets/ui-start.jpg" alt="" />
+      <div class="select-ui">
+        <h2>选择关卡</h2>
+        <div class="level-grid" id="level-grid"></div>
+        <button class="back-link" id="btn-select-back" type="button">返回</button>
+      </div>
+    </section>
+
+    <section id="screen-play" class="screen">
+      <div id="stage">
+        <img class="bg" src="assets/ui-game-bg.jpg" alt="" />
+        <div class="hud-top">
+          <div class="pill" id="hud-level">第 1 关</div>
+          <div class="pill" id="hud-steps">步数 0</div>
+        </div>
+        <div class="queue-dock" id="queue-dock"></div>
+        <div id="lot"></div>
+        <div class="slot-dock" id="slot-dock"></div>
+        <div class="hud-bottom">
+          <button class="icon-btn" id="btn-undo" type="button"><img src="assets/btn-undo.png" alt="撤销" /></button>
+          <button class="icon-btn" id="btn-retry" type="button"><img src="assets/btn-retry.png" alt="重来" /></button>
+        </div>
+        <div class="toast" id="toast"></div>
+      </div>
+
+      <div class="overlay" id="overlay-win">
+        <div class="card">
+          <img class="card-bg" src="assets/panel-card.png" alt="" />
+          <div class="card-body">
+            <h3>过关</h3>
+            <p id="win-msg">用了 0 步</p>
+            <div class="mini-btns">
+              <button class="img-btn primary" id="btn-next" type="button">
+                <img src="assets/btn-primary.png" alt="" />
+                <span>下一关</span>
+              </button>
+              <button class="img-btn secondary" id="btn-win-select" type="button">
+                <img src="assets/btn-secondary.png" alt="" />
+                <span>回选关</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay" id="overlay-fail">
+        <div class="card">
+          <img class="card-bg" src="assets/panel-card.png" alt="" />
+          <div class="card-body">
+            <h3>失败</h3>
+            <p id="fail-msg">上客槽堵死了</p>
+            <div class="mini-btns">
+              <button class="img-btn primary" id="btn-fail-retry" type="button">
+                <img src="assets/btn-primary.png" alt="" />
+                <span>重来</span>
+              </button>
+              <button class="img-btn secondary" id="btn-fail-select" type="button">
+                <img src="assets/btn-secondary.png" alt="" />
+                <span>回选关</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay" id="overlay-ad">
+        <div class="card">
+          <img class="card-bg" src="assets/panel-card.png" alt="" />
+          <div class="card-body">
+            <h3>观看</h3>
+            <p>模拟激励视频（原型占位）</p>
+            <div id="ad-countdown">3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="js/levels.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
