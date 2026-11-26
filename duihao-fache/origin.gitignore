@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.key
+project.private.config.json
+beian-shots/
+beian-upload/
+**/beian-shots/
+secrets/

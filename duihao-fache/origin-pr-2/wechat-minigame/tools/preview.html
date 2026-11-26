@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<base href="/">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>对号发车 · 本地预览（非微信包）</title>
+<style>
+  html,body{margin:0;height:100%;background:#3a2c22;overflow:hidden}
+  #game{display:block;width:100vw;height:100vh;touch-action:none}
+  body.capture{display:flex;align-items:flex-start;background:#2a1d16;overflow:auto;height:auto;min-height:100%}
+  body.capture #stage{width:390px;height:844px;flex:0 0 390px;position:relative;background:#3a2c22}
+  body.capture #game{width:390px;height:844px}
+  #log{display:none}
+  body.capture #log{display:block;flex:1;min-width:240px;padding:16px 20px;color:#fff7e6;font:14px/1.5 "Noto Sans CJK SC",sans-serif}
+  body.capture #log h1{font-size:18px;margin:0 0 12px}
+  body.capture #log ol{padding-left:20px;margin:0}
+  body.capture #log li{margin:6px 0}
+  body.capture #log .ok{color:#8ee08e}
+  body.capture #log .err{color:#ff8a7a}
+  body.capture #log .wait{color:#e8d2b0}
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="game"></canvas></div>
+<div id="log">
+  <h1>备案截图</h1>
+  <ol id="list"></ol>
+  <p id="status">准备中…</p>
+</div>
+<script>
+(function () {
+  var capture = /(?:^|[?&])capture=1(?:&|$)/.test(location.search);
+  if (capture) document.body.className = 'capture';
+  var c = document.getElementById('game');
+  window.canvas = c;
+  window.GameGlobal = window;
+  window.__DUIHAO_CAPTURE = capture;
+  function info() {
+    if (capture) {
+      return { windowWidth: 390, windowHeight: 844, pixelRatio: 2, safeArea: null, statusBarHeight: 0 };
+    }
+    return {
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+      pixelRatio: window.devicePixelRatio || 2,
+      safeArea: null,
+      statusBarHeight: 0
+    };
+  }
+  window.wx = {
+    createImage: function () { return new Image(); },
+    createCanvas: function () { return document.createElement('canvas'); },
+    getWindowInfo: info,
+    getSystemInfoSync: info,
+    getStorageSync: function (k) {
+      try { var r = localStorage.getItem(k); return r ? JSON.parse(r) : ''; } catch (e) { return ''; }
+    },
+    setStorageSync: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+    showShareMenu: function () {},
+    onShareAppMessage: function () {},
+    shareAppMessage: function () { return; },
+    onShow: function () {},
+    onHide: function () {},
+    onWindowResize: function (fn) { window.addEventListener('resize', fn); },
+    onTouchStart: function () {},
+    onTouchMove: function () {},
+    onTouchEnd: function () {},
+    onTouchCancel: function () {},
+    setKeepScreenOn: function () {},
+    setPreferredFramesPerSecond: function () {},
+    createRewardedVideoAd: function () { return null; }
+  };
+})();
+</script>
+<script src="/tools/preview.bundle.js"></script>
+<script src="/tools/capture-run.js"></script>
+</body>
+</html>

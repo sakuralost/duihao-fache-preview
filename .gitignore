@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+*.key
+*.pem
+*.p12
+*.pfx
+.env
+.env.*
+secrets/
+project.private.config.json
+beian-shots/
+beian-upload/
+**/beian-shots/
